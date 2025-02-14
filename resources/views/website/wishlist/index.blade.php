@@ -29,24 +29,24 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td class="image product-thumbnail"></td>
-                                        <td class="product-des product-name">
-                                            <h5 class="product-name"><a href="" target="_blank"></a></h5>
-                                            <p class="font-xs">
-                                                <span class="fw-bold"></span>  <br/>
-                                                <span class="fw-bold"></span> <br/>
-                                            </p>
-                                        </td>
-                                        <td class="price" data-title="Price"><span> </span></td>
+                                <tr>
+                                    <td></td>
+                                    <td class="image product-thumbnail"></td>
+                                    <td class="product-des product-name">
+                                        <h5 class="product-name"><a href="" target="_blank"></a></h5>
+                                        <p class="font-xs">
+                                            <span class="fw-bold"></span>  <br/>
+                                            <span class="fw-bold"></span> <br/>
+                                        </p>
+                                    </td>
+                                    <td class="price" data-title="Price"><span> </span></td>
 
-                                        <td class="action" data-title="Remove">
-                                            <a href="" onclick="return confirm('Are you sure to delete this..');" class="btn bg-danger border-0 btn-sm">
-                                                <i class="fi-rs-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    <td class="action" data-title="Remove">
+                                        <a href="" onclick="return confirm('Are you sure to delete this..');" class="btn bg-danger border-0 btn-sm">
+                                            <i class="fi-rs-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="6" class="text-end">
                                         <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Wishlist</a>
@@ -63,4 +63,5 @@
     </section>
 
 @endsection
+
 

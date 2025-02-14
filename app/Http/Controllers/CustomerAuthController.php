@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
-use Session;
 use Illuminate\Http\Request;
+use Session;
 
 class CustomerAuthController extends Controller
 {
-    private $customer, $orders;
-
+    public $orders, $customer;
     public function login()
     {
         return view('website.customer.login');
@@ -21,7 +20,7 @@ class CustomerAuthController extends Controller
         $this->customer = Customer::where('email', $request->user_name)->orWhere('mobile', $request->user_name)->first();
         if ($this->customer)
         {
-            if (password_verify($request->password, $this->customer->password))
+            if(password_verify($request->password, $this->customer->password))
             {
                 Session::put('customer_id', $this->customer->id);
                 Session::put('customer_name', $this->customer->name);
@@ -30,22 +29,24 @@ class CustomerAuthController extends Controller
             }
             else
             {
-                return back()->with('message', 'Your password number is not valid.');
+                return back()->with('message', ' Your password is not valid!');
             }
+
         }
         else
         {
-            return back()->with('message', 'Your email or mobile number is not valid.');
+            return back()->with('message', ' Your mobile or email address is not valid!');
         }
-
-
     }
 
     public function newCustomer(Request $request)
     {
+        
         $this->customer = Customer::newCustomer($request);
+
         Session::put('customer_id', $this->customer->id);
         Session::put('customer_name', $this->customer->name);
+
         return redirect('/my-dashboard');
     }
 
@@ -61,4 +62,5 @@ class CustomerAuthController extends Controller
         $this->orders = Order::where('customer_id', Session::get('customer_id'))->orderBy('id', 'desc')->get();
         return view('website.customer.dashboard', ['orders' => $this->orders]);
     }
+
 }

@@ -1,6 +1,6 @@
 @extends('website.master')
 
-@section('title', 'Customer Login Register')
+@section('title', 'Customer Dashboard ')
 
 @section('body')
 
@@ -13,7 +13,6 @@
             </div>
         </div>
     </div>
-
 
     <section class="pt-50 pb-50">
         <div class="container">
@@ -49,7 +48,7 @@
                                 <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5 class="mb-0">Hello {{Session::get('customer_name')}} ! </h5>
+                                            <h5 class="mb-0">Hello {{Session::get('customer_name')}}! </h5>
                                         </div>
                                         <div class="card-body">
                                             <p>From your account dashboard. you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a href="#">edit your password and account details.</a></p>
@@ -196,6 +195,5 @@
         </div>
     </section>
 
-
-
 @endsection
+

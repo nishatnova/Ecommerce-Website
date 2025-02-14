@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title', 'Product Detail')
+@section('title', 'Show Product')
 
 @section('body')
     <!-- PAGE-HEADER -->
@@ -21,7 +21,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <h3 class="card-title">Product Detail Information</h3>
+                    <h3 class="card-title">Product Detail Content</h3>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-hover">
@@ -35,7 +35,9 @@
                         </tr>
                         <tr>
                             <th>Product Code</th>
-                            <td>{{$product->code}}</td>
+                            <td>
+                                {{$product->code}}
+                            </td>
                         </tr>
                         <tr>
                             <th>Product Image</th>
@@ -56,10 +58,6 @@
                             <td>{{$product->category->name}}</td>
                         </tr>
                         <tr>
-                            <th>Sub Category Name</th>
-                            <td>{{$product->subCategory->name}}</td>
-                        </tr>
-                        <tr>
                             <th>Brand Name</th>
                             <td>{{$product->brand->name}}</td>
                         </tr>
@@ -71,7 +69,7 @@
                             <th>Product Color</th>
                             <td>
                                 @foreach($product->colors as $color)
-                                    <span>{{$color->color->name.' '}} </span>
+                                    <span>{{$color->color->name}}</span>
                                 @endforeach
                             </td>
                         </tr>
@@ -79,28 +77,30 @@
                             <th>Product Size</th>
                             <td>
                                 @foreach($product->sizes as $size)
-                                    <span>{{$size->size->name.' '}} </span>
+                                    <span>{{$size->size->name}}</span>
                                 @endforeach
                             </td>
                         </tr>
+
                         <tr>
                             <th>Short Description</th>
                             <td>{{$product->short_description}}</td>
                         </tr>
                         <tr>
                             <th>Long Description</th>
-                            <td>{!! $product->long_description !!}</td>
+                            <td>{!!$product->long_description  !!}</td>
                         </tr>
+
                         <tr>
                             <th>Price</th>
                             <td>
-                                <span> Rewgular Price : {{$product->regular_price}}</span> <br/>
-                                <span> Sell Price : {{$product->selling_price}}</span>
+                                <span> Regular Price : {{$product->regular_price}}</span><br/>
+                                <span> Selling Price : {{$product->selling_price}}</span>
                             </td>
                         </tr>
                         <tr>
                             <th>Stock Amount</th>
-                            <td> {{$product->stock_amount}}</td>
+                            <td>{{$product->stock_amount}}</td>
                         </tr>
                         <tr>
                             <th>Total View</th>

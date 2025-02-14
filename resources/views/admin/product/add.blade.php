@@ -24,7 +24,7 @@
                     <h3 class="card-title">Add Product Form</h3>
                 </div>
                 <div class="card-body">
-                    <p class="text-success text-center">{{session('message')}}</p>
+                    <h4 class="text-success">{{session('message')}}</h4>
                     <form class="form-horizontal" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-4">
@@ -40,17 +40,18 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Sub Category Name</label>
+                            <label class="col-md-3 form-label"> Sub Category Name</label>
                             <div class="col-md-9">
                                 <select class="form-control" name="sub_category_id" id="subCategoryId" required>
                                     <option value="" disabled selected> -- Select Sub Category -- </option>
                                     @foreach($sub_categories as $sub_category)
-                                        <option value="{{$sub_category->id}}"> {{$sub_category->name}} </option>
+                                        <option value="{{$sub_category->id}}"> {{$sub_category->name}}</option>
                                     @endforeach
                                 </select>
                                 <span class="text-danger">{{$errors->has('sub_category_id') ? $errors->first('sub_category_id') : ''}}</span>
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Brand Name</label>
                             <div class="col-md-9">
@@ -63,6 +64,7 @@
                                 <span class="text-danger">{{$errors->has('brand_id') ? $errors->first('brand_id') : ''}}</span>
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Unit Name</label>
                             <div class="col-md-9">
@@ -75,21 +77,24 @@
                                 <span class="text-danger">{{$errors->has('unit_id') ? $errors->first('unit_id') : ''}}</span>
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Color Name</label>
                             <div class="col-md-9 form-group">
-                                <select multiple class="form-control select2-show-search form-select" name="colors[]" data-placeholder="Select Product Color" required>
+                                <select multiple class="form-control select2-show-search form-select" data-placeholder="Select Product Color" name="colors[]" required>
                                     @foreach($colors as $color)
-                                    <option value="{{$color->id}}">{{$color->name}}</option>
+                                        <option value="{{$color->id}}"> {{$color->name}} </option>
                                     @endforeach
                                 </select>
                                 <span class="text-danger">{{$errors->has('color_id') ? $errors->first('color_id') : ''}}</span>
                             </div>
                         </div>
+
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Size Name</label>
                             <div class="col-md-9 form-group">
                                 <select multiple class="form-control select2-show-search form-select" name="sizes[]" data-placeholder="Select Product Size" required>
+
                                     @foreach($sizes as $size)
                                         <option value="{{$size->id}}"> {{$size->name}} </option>
                                     @endforeach
@@ -105,7 +110,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="firstCode" class="col-md-3 form-label">Product Code</label>
+                            <label for="firstName" class="col-md-3 form-label">Product Code</label>
                             <div class="col-md-9">
                                 <input class="form-control" value="{{old('code')}}" id="firstCode" name="code" placeholder="Product Code" type="text"/>
                                 <span class="text-danger">{{$errors->has('code') ? $errors->first('code') : ''}}</span>
@@ -114,40 +119,45 @@
                         <div class="row mb-4">
                             <label for="lastName" class="col-md-3 form-label">Short Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="lastName" name="short_description" placeholder="Short Description"></textarea>
+                                <textarea class="form-control" id="shortDescription" name="short_description" placeholder="Product Short Description"></textarea>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="summernote" class="col-md-3 form-label">Long Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="summernote" name="long_description" placeholder="Long Description"></textarea>
+                                <textarea class="form-control" id="summernote" name="long_description" placeholder="Product Long Description"></textarea>
                             </div>
                         </div>
+
+
                         <div class="row mb-4">
                             <label for="imgInp" class="col-md-3 form-label">Product Image</label>
                             <div class="col-md-9">
-                                <input type="file" class="dropify" name="image" data-height="200"/>
+                                <input type="file" class="dropify" name="image" data-height="200" />
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Product Other Image</label>
+                            <label for="imgInp" class="col-md-3 form-label">Product Other Image</label>
                             <div class="col-md-9">
-                                <input type="file" name="other_image[]" class="form-control" multiple/>
+                                <input type="file" name="other_image[]" class="form-control" multiple />
+
                             </div>
                         </div>
+
+
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Product Price</label>
+                            <label for="lastName" class="col-md-3 form-label">Product Price</label>
                             <div class="col-md-9">
-                                <div class="input-group">
-                                    <input class="form-control" name="regular_price" placeholder="Regular Price" type="number"/>
-                                    <input class="form-control" name="selling_price" placeholder="Selling Price" type="number"/>
-                                </div>
+                               <div class="input-group">
+                                   <input class="form-control" name="regular_price" placeholder="Regular Price" type="number"/>
+                                   <input class="form-control" name="selling_price" placeholder="Selling Price" type="number"/>
+                               </div>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="stockAmount" class="col-md-3 form-label">Stock Amount</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="stockAmount" name="stock_amount" placeholder="Stock Amount" type="number"/>
+                                    <input class="form-control" id="stockAmount" name="stock_amount" placeholder="Stock Amount" type="number"/>
                             </div>
                         </div>
                         <div class="row mb-4">
@@ -157,7 +167,7 @@
                                 <label> <input type="radio" value="0" name="status"><span> Unpublished</span> </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Create New Product</button>
+                        <button class="btn btn-primary-gradient rounded-0 float-end" type="submit">Create New Product</button>
                     </form>
                 </div>
             </div>

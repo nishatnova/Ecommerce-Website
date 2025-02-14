@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class SizeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('admin.size.index', ['sizes' => Size::all()]);
@@ -29,7 +26,7 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         Size::newSize($request);
-        return back()->with('message', 'Size info create successfully.');
+        return back()->with('message', 'Size added successfully.');
     }
 
     /**
@@ -37,7 +34,7 @@ class SizeController extends Controller
      */
     public function show(Size $size)
     {
-        //
+        return view('admin.size.show', ['size' => $size]);
     }
 
     /**
@@ -54,7 +51,7 @@ class SizeController extends Controller
     public function update(Request $request, Size $size)
     {
         Size::updateSize($request, $size);
-        return redirect('/size')->with('message', 'Size info update successfully.');
+        return redirect('/size')->with('message', 'Size updated successfully');
     }
 
     /**
@@ -63,6 +60,6 @@ class SizeController extends Controller
     public function destroy(Size $size)
     {
         Size::deleteSize($size);
-        return back()->with('message', 'Size info delete successfully.');
+        return back()->with('message', 'Size deleted successfully.');
     }
 }

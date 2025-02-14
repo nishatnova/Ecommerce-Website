@@ -3,66 +3,28 @@
 @section('body')
     <section class="home-slider position-relative pt-50">
         <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
+            @foreach($productOffers as $productOffer)
             <div class="single-hero-slider single-animation-wrap">
                 <div class="container">
                     <div class="row align-items-center slider-animated-1">
                         <div class="col-lg-5 col-md-6">
                             <div class="hero-slider-content-2">
-                                <h4 class="animated">Trade-in offer</h4>
-                                <h2 class="animated fw-900">Supper value deals</h2>
-                                <h1 class="animated fw-900 text-brand">On all products</h1>
-                                <p class="animated">Save more with coupons & up to 70% off</p>
+                                <h4 class="animated">{{$productOffer->title_one}}</h4>
+                                <h2 class="animated fw-900">{{$productOffer->title_two}}</h2>
+                                <h1 class="animated fw-900 text-brand">{{$productOffer->title_three}}</h1>
+                                <p class="animated">{{$productOffer->description}}</p>
                                 <a class="animated btn btn-brush btn-brush-3" href="shop-product-right.html"> Shop Now </a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-6">
                             <div class="single-slider-img single-slider-img-1">
-                                <img class="animated slider-1-1" src="{{asset('/')}}website/assets/imgs/slider/slider-1.png" alt="">
+                                <img class="animated slider-1-1" src="{{asset($productOffer->image)}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="single-hero-slider single-animation-wrap">
-                <div class="container">
-                    <div class="row align-items-center slider-animated-1">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="hero-slider-content-2">
-                                <h4 class="animated">Hot promotions</h4>
-                                <h2 class="animated fw-900">Fashion Trending</h2>
-                                <h1 class="animated fw-900 text-7">Great Collection</h1>
-                                <p class="animated">Save more with coupons & up to 20% off</p>
-                                <a class="animated btn btn-brush btn-brush-2" href="shop-product-right.html"> Discover Now </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-6">
-                            <div class="single-slider-img single-slider-img-1">
-                                <img class="animated slider-1-2" src="{{asset('/')}}website/assets/imgs/slider/slider-2.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-slider single-animation-wrap">
-                <div class="container">
-                    <div class="row align-items-center slider-animated-1">
-                        <div class="col-lg-5 col-md-6">
-                            <div class="hero-slider-content-2">
-                                <h4 class="animated">Upcoming Offer</h4>
-                                <h2 class="animated fw-900">Big Deals From</h2>
-                                <h1 class="animated fw-900 text-8">Manufacturer</h1>
-                                <p class="animated">Clothing, Shoes, Bags, Wallets...</p>
-                                <a class="animated btn btn-brush btn-brush-1" href="shop-product-right.html"> Shop Now </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-6">
-                            <div class="single-slider-img single-slider-img-1">
-                                <img class="animated slider-1-3" src="{{asset('/')}}website/assets/imgs/slider/slider-3.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="slider-arrow hero-slider-1-arrow"></div>
     </section>
@@ -134,9 +96,9 @@
                             <div class="product-cart-wrap h-100">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="">
-                                            <img class="default-img" src="{{asset($product->image)}}" alt="">
-                                            <img class="hover-img" src="{{asset($product->image)}}" alt="">
+                                        <a href="shop-product-right.html">
+                                            <img class="default-img" src="{{asset($product->image)}}" height="300" alt="">
+                                            <img class="hover-img" src="{{asset($product->image)}}" height="300" alt="">
                                         </a>
                                     </div>
                                     <div class="product-action-1">
@@ -150,17 +112,17 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="">{{$product->category->name}}</a>
+                                        <a href="shop-grid-right.html">{{$product->category->name}}</a>
                                     </div>
-                                    <h2><a href="">{{$product->name}}</a></h2>
+                                    <h2><a href="shop-product-right.html">{{$product->name}}</a></h2>
                                     <div class="rating-result" title="90%">
                                             <span>
                                                 <span>90%</span>
                                             </span>
                                     </div>
                                     <div class="product-price">
-                                        <span>TK. {{$product->selling_price}} </span>
-                                        <span class="old-price">Tk. {{$product->regular_price}}</span>
+                                        <span>Tk. {{$product->selling_price}} </span>
+                                        <span class="old-price">Tk.{{$product->regular_price}}</span>
                                     </div>
                                     <div class="product-action-1 show">
                                         <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
@@ -169,6 +131,7 @@
                             </div>
                         </div>
                         @endforeach
+
                     </div>
                     <!--End product-grid-4-->
                 </div>
@@ -807,54 +770,14 @@
             <div class="carausel-6-columns-cover position-relative">
                 <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
                 <div class="carausel-6-columns" id="carausel-6-columns">
+                    @foreach($categories as $category)
                     <div class="card-1">
                         <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-1.jpg" alt=""></a>
+                            <a href=""><img src="{{asset($category->image)}}" alt="" height="150"></a>
                         </figure>
-                        <h5><a href="shop-grid-right.html">T-Shirt</a></h5>
+                        <h5><a href="">{{$category->name}}</a></h5>
                     </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"> <img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-2.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Bags</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-3.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Sandan</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-4.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Scarf Cap</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-5.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Shoes</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-6.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Pillowcase</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-7.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Jumpsuits</a></h5>
-                    </div>
-                    <div class="card-1">
-                        <figure class=" img-hover-scale overflow-hidden">
-                            <a href="shop-grid-right.html"><img src="{{asset('/')}}website/assets/imgs/shop/category-thumb-8.jpg" alt=""></a>
-                        </figure>
-                        <h5><a href="shop-grid-right.html">Hats</a></h5>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 @extends('admin.master')
 
-@section('title', 'Manage Color')
+@section('title', 'Manage Category')
 
 @section('body')
     <!-- PAGE-HEADER -->
@@ -46,7 +46,7 @@
                                     <td>{{$color->description}}</td>
                                     <td>{{$color->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                     <td class="d-flex">
-                                        <a href="{{route('color.edit', $color->id)}}" class="btn btn-success btn-sm me-1">
+                                        <a href="{{route('color.edit', $color->id)}}" class="btn btn-primary btn-sm me-1">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form action="{{route('color.destroy', $color->id)}}" method="POST">

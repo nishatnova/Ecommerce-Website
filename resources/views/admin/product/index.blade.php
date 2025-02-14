@@ -53,7 +53,7 @@
                                         <a href="{{route('product.show', $product->id)}}" class="btn btn-info btn-sm me-1">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{route('product.edit', $product->id)}}" class="btn btn-success btn-sm me-1">
+                                        <a href="{{route('product.edit', $product->id)}}" class="btn btn-primary btn-sm me-1">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form action="{{route('product.destroy', $product->id)}}" method="POST">
@@ -74,4 +74,3 @@
         </div>
     </div>
 @endsection
-

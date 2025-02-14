@@ -41,12 +41,12 @@
                             @foreach($sub_categories as $sub_category)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{ isset($sub_category->category->name) ? $sub_category->category->name : ' '  }}</td>
+                                <td>{{isset($sub_category->category->name) ? $sub_category->category->name : ' '}}</td>
                                 <td>{{$sub_category->name}}</td>
                                 <td><img src="{{asset($sub_category->image)}}" alt="" height="40" width="60"/></td>
                                 <td>{{$sub_category->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                 <td class="d-flex">
-                                    <a href="{{route('sub-category.edit', $sub_category->id)}}" class="btn btn-success btn-sm me-1">
+                                    <a href="{{route('sub-category.edit', $sub_category->id)}}" class="btn btn-primary btn-sm me-1">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     <form action="{{route('sub-category.destroy', $sub_category->id)}}" method="POST">

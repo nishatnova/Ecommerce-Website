@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Color;
 
 class ProductColor extends Model
 {
@@ -17,11 +18,10 @@ class ProductColor extends Model
         {
             self::$productColor = new ProductColor();
             self::$productColor->product_id = $id;
-            self::$productColor->color_id   = $color;
+            self::$productColor->color_id = $color;
             self::$productColor->save();
         }
     }
-
     public function color()
     {
         return $this->belongsTo(Color::class);
@@ -34,7 +34,6 @@ class ProductColor extends Model
         {
             $productColor->delete();
         }
-
         self::newProductColor($colors, $id);
     }
 }

@@ -51,7 +51,7 @@
                                     <label> <input type="radio" value="0" {{$unit->status == 0 ? 'checked' : ''}} name="status"><span> Unpublished</span> </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary rounded-0 float-end" type="submit">Update Unit Info</button>
+                            <button class="btn btn-primary-gradient rounded-0 float-end" type="submit">Update Unit Info</button>
                     </form>
                 </div>
             </div>

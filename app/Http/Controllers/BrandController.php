@@ -37,7 +37,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        return view('admin.product.show', ['brand' => $brand]);
     }
 
     /**

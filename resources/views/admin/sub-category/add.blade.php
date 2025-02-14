@@ -66,7 +66,7 @@
                                 <label> <input type="radio" value="0" name="status"><span> Unpublished</span> </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Create New Sub Category</button>
+                        <button class="btn btn-primary-gradient rounded-0 float-end" type="submit">Create New Sub Category</button>
                     </form>
                 </div>
             </div>

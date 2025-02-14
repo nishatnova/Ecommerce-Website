@@ -15,6 +15,9 @@ class WishlistController extends Controller
     {
         if (Session::get('customer_id'))
         {
+            WishList::where('customer_id', $this->customer)
+                ->where('product_id', $id)
+                ->first();
             return view('website.wishlist.index');
         }
         return redirect('/login-register');

@@ -7,7 +7,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="" rel="nofollow">Home</a>
+                <a href="index-2.html" rel="nofollow">Home</a>
                 <span></span> Shop
             </div>
         </div>
@@ -64,42 +64,45 @@
                     </div>
                     <div class="row product-grid-3">
                         @foreach($products as $product)
-                        <div class="col-lg-4 col-md-4 col-12 col-sm-6">
-                            <div class="product-cart-wrap mb-30">
-                                <div class="product-img-action-wrap">
-                                    <div class="product-img product-img-zoom">
-                                        <a href="">
-                                            <img class="default-img" src="{{asset($product->image)}}" alt="">
-                                            <img class="hover-img" src="{{asset($product->image)}}" alt="">
-                                        </a>
+                            <div class="col-lg-4 col-md-4 col-12 col-sm-6 mb-15">
+                                <div class="product-cart-wrap mb-30 h-100">
+                                    <div class="product-img-action-wrap">
+                                        <div class="product-img product-img-zoom">
+                                            <a href="shop-product-right.html">
+                                                <img class="default-img " src="{{asset($product->image)}}" height="250px" alt="">
+                                                <img class="hover-img" src="{{asset($product->image)}}" height="250px" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="product-action-1">
+                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
+                                                <i class="fi-rs-search"></i></a>
+                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                        </div>
+                                        <div class="product-badges product-badges-position product-badges-mrg">
+                                            <span class="hot">Hot</span>
+                                        </div>
                                     </div>
-                                    <div class="product-action-1">
-                                        <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                            <i class="fi-rs-search"></i></a>
-                                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                    </div>
-                                    <div class="product-badges product-badges-position product-badges-mrg">
-                                        <span class="hot">Hot</span>
-                                    </div>
-                                </div>
-                                <div class="product-content-wrap">
-                                    <h2><a href="{{route('product-detail', ['id' => $product->id])}}">{{$product->name}}</a></h2>
-                                    <div class="rating-result" title="90%">
+                                    <div class="product-content-wrap">
+                                        <div class="product-category">
+                                            <a href="shop-grid-right.html"></a>
+                                        </div>
+                                        <h2><a href="{{route('product-detail', ['id' => $product->id])}}">{{$product->name}}</a></h2>
+                                        <div class="rating-result" title="90%">
                                             <span>
                                                 <span>90%</span>
                                             </span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>TK. {{$product->selling_price}}</span>
-                                        <span class="old-price">Tk. {{$product->regular_price}}</span>
-                                    </div>
-                                    <div class="product-action-1 show">
-                                        <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        </div>
+                                        <div class="product-price">
+                                            <span>{{$product->selling_price}} </span>
+                                            <span class="old-price">{{$product->regular_price}}</span>
+                                        </div>
+                                        <div class="product-action-1 show">
+                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <!--pagination-->

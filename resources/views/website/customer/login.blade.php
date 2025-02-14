@@ -1,6 +1,6 @@
 @extends('website.master')
 
-@section('title', 'Customer Login Register')
+@section('title', 'Customer Login ')
 
 @section('body')
 
@@ -24,14 +24,14 @@
                                     <div class="heading_s1">
                                         <h3 class="mb-30">Login</h3>
                                     </div>
-                                    <p class="text-center text-danger">{{session('message')}}</p>
+                                    <h4 class="text-danger text-center">{{session('message')}}</h4>
                                     <form method="post" action="{{route('login-check')}}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" required="" name="user_name" placeholder="Your Email Or Phone"/>
+                                            <input type="text" required="" name="user_name" placeholder="Your Email or Phone number">
                                         </div>
                                         <div class="form-group">
-                                            <input required="" type="password" name="password" placeholder="Password"/>
+                                            <input required="" type="password" name="password" placeholder="Password">
                                         </div>
                                         <div class="login_footer form-group">
                                             <div class="chek-form">
@@ -68,7 +68,7 @@
                                             <input type="email" required="" name="email" placeholder="Email Address">
                                         </div>
                                         <div class="form-group">
-                                            <input type="number" required="" name="mobile" placeholder="Mobile Number">
+                                            <input type="number" required="" name="mobile" placeholder="Mobie Number">
                                         </div>
                                         <div class="form-group">
                                             <input required="" type="password" name="password" placeholder="Password">
@@ -80,7 +80,7 @@
                                                     <label class="form-check-label" for="exampleCheckbox12"><span>I agree to terms &amp; Policy.</span></label>
                                                 </div>
                                             </div>
-                                            <a href=""><i class="fi-rs-book-alt mr-5 text-muted"></i>Lean more</a>
+                                            <a href="page-privacy-policy.html"><i class="fi-rs-book-alt mr-5 text-muted"></i>Lean more</a>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Submit &amp; Register</button>
@@ -104,3 +104,4 @@
     </section>
 
 @endsection
+

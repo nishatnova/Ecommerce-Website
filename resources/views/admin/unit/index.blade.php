@@ -46,7 +46,7 @@
                                     <td>{{$unit->description}}</td>
                                     <td>{{$unit->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                     <td class="d-flex">
-                                        <a href="{{route('unit.edit', $unit->id)}}" class="btn btn-success btn-sm me-1">
+                                        <a href="{{route('unit.edit', $unit->id)}}" class="btn btn-primary btn-sm me-1">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form action="{{route('unit.destroy', $unit->id)}}" method="POST">
@@ -66,4 +66,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection

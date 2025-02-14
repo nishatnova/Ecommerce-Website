@@ -192,12 +192,14 @@
                                     <li><a href="#"><img src="{{asset('/')}}website/assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
                                 </ul>
                             </li>
+
                             @if(Session::get('customer_id'))
                                 <li>
                                     <a class="language-dropdown-active" href="#"> <i class="fi-rs-user"></i> {{Session::get('customer_name')}} <i class="fi-rs-angle-small-down"></i></a>
                                     <ul class="language-dropdown">
-                                        <li><a href="{{route('customer.dashboard')}}"><i class="fi-rs-home"></i>Dashboard</a></li>
+                                        <li class="d-flex"><a href="{{route('customer.dashboard')}}"><i class="fi-rs-home"></i>Dashboard</a></li>
                                         <li><a href="{{route('customer-logout')}}"><i class="fi-rs-lock"></i>Logout</a></li>
+
                                     </ul>
                                 </li>
                             @else
@@ -249,26 +251,26 @@
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <ul>
-                                        @php($sum=0)
+                                        @php($sum = 0)
                                         @foreach(Cart::content() as $cartItem)
                                         <li>
                                             <div class="shopping-cart-img">
-                                                <a href=""><img alt="Evara" src="{{asset($cartItem->options->image)}}"></a>
+                                                <a href="shop-product-right.html"><img alt="Evara" src="{{asset($cartItem->options->image)}}"></a>
                                             </div>
                                             <div class="shopping-cart-title">
-                                                <h4><a href="">{{$cartItem->name}}</a></h4>
-                                                <h4><span>{{$cartItem->qty}} × </span> {{$cartItem->price}}</h4>
+                                                <h4><a href="shop-product-right.html">{{$cartItem->name}}</a></h4>
+                                                <h4><span>{{$cartItem->qty}} × </span>{{$cartItem->price}}</h4>
                                             </div>
                                             <div class="shopping-cart-delete">
                                                 <a href="#"><i class="fi-rs-cross-small"></i></a>
                                             </div>
                                         </li>
-                                        @php($sum = $sum + $cartItem->subtotal)
+                                            @php($sum = $sum + $cartItem->subtotal)
                                         @endforeach
                                     </ul>
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
-                                            <h4>Total <span>TK. {{$sum}}</span></h4>
+                                            <h4>Total <span>Tk. {{$sum}}</span></h4>
                                         </div>
                                         <div class="shopping-cart-button">
                                             <a href="{{route('cart.index')}}" class="outline">View cart</a>
@@ -277,6 +279,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -297,7 +300,7 @@
                         <div class="categori-dropdown-wrap categori-dropdown-active-large">
                             <ul>
                                 @foreach($categories as $category)
-                                <li class="{{ count($category->subCategory) > 0 ? 'has-children' : '' }}">
+                                <li class="{{ count($category->subCategory) > 0 ? 'has-children' : ' ' }}">
                                     <a href="{{route('product-category', ['id' => $category->id])}}"><i class="evara-font-dress"></i>{{$category->name}}</a>
                                     @if(count($category->subCategory) > 0)
                                     <div class="dropdown-menu">

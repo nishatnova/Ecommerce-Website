@@ -46,7 +46,7 @@
                                     <td><img src="{{asset($brand->image)}}" alt="" height="40" width="60"/></td>
                                     <td>{{$brand->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                     <td class="d-flex">
-                                        <a href="{{route('brand.edit', $brand->id)}}" class="btn btn-success btn-sm me-1">
+                                        <a href="{{route('brand.edit', $brand->id)}}" class="btn btn-primary btn-sm me-1">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <form action="{{route('brand.destroy', $brand->id)}}" method="POST">

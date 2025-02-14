@@ -33,18 +33,19 @@
                                 <input class="form-control" id="firstName" name="name" placeholder="Color Name" type="text">
                             </div>
                         </div>
+
                         <div class="row mb-4">
-                            <label for="firstCode" class="col-md-3 form-label">Color Code</label>
+                            <label class="col-md-3 form-label">Color Code</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="firstCode" name="code" placeholder="Color Code" type="color"/>
+                                <input class="form-control" id="code" name="code" type="color"/>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label for="lastName" class="col-md-3 form-label">Color Description</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" id="lastName" placeholder="Color Description" name="description"></textarea>
-                            </div>
+                    <div class="row mb-4">
+                        <label for="" class="col-md-3 form-label">Color Description</label>
+                        <div class="col-md-9">
+                            <textarea class="form-control" id="description" placeholder="color Description" name="description"></textarea>
                         </div>
+                    </div>
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Publication Status</label>
                             <div class="col-md-9 pt-3">
@@ -52,10 +53,12 @@
                                 <label> <input type="radio" value="0" name="status"><span> Unpublished</span> </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Create New Color</button>
+                        <button class="btn btn-primary-gradient rounded-0 float-end" type="submit">Create New Color</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
 @endsection

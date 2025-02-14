@@ -1,9 +1,6 @@
 @extends('admin.master')
-
 @section('title', 'Edit Size')
-
 @section('body')
-    <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
             <h1 class="page-title">Size Module</h1>
@@ -15,45 +12,57 @@
             </ol>
         </div>
     </div>
-    <!-- PAGE-HEADER END -->
-
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header border-bottom">
-                    <h3 class="card-title">Edit Size Form</h3>
-                </div>
+
                 <div class="card-body">
-                    <p class="text-muted">{{session('message')}}</p>
-                    <form class="form-horizontal" action="{{route('size.update', $size->id)}}" method="post">
+                    <p class="text-success text-center">{{session('message')}}</p>
+                    <form action="{{ route('size.update', $size->id) }}" method="post">
                         @method('PUT')
                         @csrf
-                        <div class="row mb-4">
-                            <label for="firstName" class="col-md-3 form-label">Size Name</label>
-                            <div class="col-md-9">
-                                <input class="form-control" id="firstName" value="{{$size->name}}" name="name" placeholder="Size Name" type="text">
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-2">Size Name</label>
+                            <div class="col-md-7 form-group">
+                                <input id="name" type="text" value="{{ $size->name }}" class="form-control" name="name"/>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label for="firstCode" class="col-md-3 form-label">Size Code</label>
-                            <div class="col-md-9">
-                                <input class="form-control" id="firstCode" value="{{$size->code}}" name="code" placeholder="Size Code" type="text"/>
+
+                        <div class="row mb-3">
+                            <label for="code" class="col-md-2">Size Code</label>
+                            <div class="col-md-7 form-group">
+                                <input id="code" type="text" value="{{ $size->code }}" class="form-control" name="code"/>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label for="lastName" class="col-md-3 form-label">Size Description</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" id="lastName" placeholder="Size Description" name="description">{{$size->description}}</textarea>
+
+                        <div class="row">
+                            <label for="description" class="col-md-2">Size Description</label>
+                            <div class="col-md-7 form-group">
+                                <textarea id="description" name="description" class="form-control">{{ $size->description }}</textarea>
                             </div>
                         </div>
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Publication Status</label>
-                            <div class="col-md-9 pt-3">
-                                <label> <input type="radio" value="1" {{$size->status == 1 ? 'checked' : ''}} name="status"><span> Published</span> </label>
-                                <label> <input type="radio" value="0" {{$size->status == 0 ? 'checked' : ''}} name="status"><span> Unpublished</span> </label>
+
+                        <div class="row">
+                            <label for="description" class="col-md-2">Status</label>
+                            <div class="col-md-7 form-group">
+                                <label class="rdiobox">
+                                    <input type="radio" class="radio-primary" {{$size->status == 1 ? 'checked' : ''}} value="1" name="status"/>
+                                    <span> Published</span>
+                                </label>
+
+                                <label class="rdiobox">
+                                    <input type="radio" class="radio-primary" {{$size->status == 0 ? 'checked' : ''}} value="0" name="status"/>
+                                    <span> Unpublished</span>
+                                </label>
                             </div>
                         </div>
-                        <button class="btn btn-primary rounded-0 float-end" type="submit">Update Size Info</button>
+
+                        <div class="row">
+                            <label for="description" class="col-md-2"></label>
+                            <div class="col-md-7 form-group">
+                                <input type="submit" class="btn btn-primary-gradient rounded-0 float-end" value="Update Size Info">
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

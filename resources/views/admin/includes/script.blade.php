@@ -56,8 +56,12 @@
 <script src="{{asset('/')}}admin/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
 <script src="{{asset('/')}}admin/assets/js/table-data.js"></script>
 
+
+
 <!-- FORM ELEMENTS JS -->
 <script src="{{asset('/')}}admin/assets/js/formelementadvnced.js"></script>
+
+
 <!-- CUSTOM JS -->
 <script src="{{asset('/')}}admin/assets/js/custom.js"></script>
 
@@ -95,28 +99,27 @@
         readURL(this);
     });
 </script>
-
-
 <script>
-
     function setSubCategory(id) {
         $.ajax({
             type: "GET",
             url: "{{route('get-sub-category-by-category')}}",
-            data:{id: id},
+            data: {id: id},
             dataType: "JSON",
             success: function (response) {
-                var option = '';
-                option += '<option value="" disabled selected> -- Select Sub Category -- </option>';
-                $.each(response, function (key, value) {
-                    option += '<option value="'+value.id+'"> '+value.name+' </option>';
-                });
-                $('#subCategoryId').empty();
-                $('#subCategoryId').append(option);
+               var option = '';
+               option += '<option value="" disabled selected> -- Select Sub Category -- </option>';
+               $.each(response, function (key, value) {
+
+                   option += '<option value="'+value.id+'"> '+value.name+' </option>';
+
+               });
+               $('#subCategoryId').empty();
+               $('#subCategoryId').append(option);
+
             }
+
         });
+
     }
-
 </script>
-
-

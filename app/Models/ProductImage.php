@@ -8,14 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ProductImage extends Model
 {
     use HasFactory;
-
-    private static $productImage, $productImages, $image, $imageName, $extension, $directory;
-
-    private static function getImageUrl($image)
+    private static  $productImage, $productImages, $image, $imageName, $extension, $directory;
+    public static function getImageUrl($image)
     {
-        self::$extension    = $image->getClientOriginalExtension();
-        self::$imageName    = rand(0, 500000).'.'.self::$extension; // 256555.jpg
-        self::$directory    = 'upload/product-other-images/';
+        self::$extension = $image->getClientOriginalExtension();
+        self::$imageName = rand(0, 500000).'.'.self::$extension;
+        self::$directory = 'upload/product-other-images/';
         $image->move(self::$directory, self::$imageName);
         return self::$directory.self::$imageName;
     }
@@ -26,11 +24,10 @@ class ProductImage extends Model
         {
             self::$productImage = new ProductImage();
             self::$productImage->product_id = $id;
-            self::$productImage->image      = self::getImageUrl($image);
+            self::$productImage->image = self::getImageUrl($image);
             self::$productImage->save();
         }
     }
-
     public static function updateProductImage($images, $id)
     {
         self::$productImages = ProductImage::where('product_id', $id)->get();
@@ -42,8 +39,6 @@ class ProductImage extends Model
             }
             $productImage->delete();
         }
-
         self::newProductImage($images, $id);
     }
 }
-

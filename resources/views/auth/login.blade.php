@@ -53,26 +53,20 @@
         <div class="container-login100">
             <div class="wrap-login100 p-0">
                 <div class="card-body">
-
-                    @if (session('status'))
-                        <p class="text-center text-danger">
-                            {{ session('status') }}
-                        </p>
-                    @endif
                     <form action="{{route('login')}}" method="POST" class="login100-form validate-form">
 									<span class="login100-form-title">
 										Login
 									</span>
                         @csrf
                         <div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="email" value="{{old('email')}}" name="email" placeholder="Email"/>
+                            <input class="input100" type="email" name="email" placeholder="Email"/>
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 											<i class="zmdi zmdi-email" aria-hidden="true"></i>
 										</span>
                         </div>
                         <div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
-                            <input class="input100" type="password" value="{{old('password')}}" name="password" placeholder="Password">
+                            <input class="input100" type="password" name="password" placeholder="Password">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
@@ -87,7 +81,7 @@
                             </button>
                         </div>
                         <div class="text-center pt-3">
-                            <p class="text-dark mb-0">Not a member?<a href="" class="text-primary ms-1">Create an Account</a></p>
+                            <p class="text-dark mb-0">Not a member?<a href="register.html" class="text-primary ms-1">Create an Account</a></p>
                         </div>
                     </form>
                 </div>

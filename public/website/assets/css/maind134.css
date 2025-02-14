@@ -4522,10 +4522,7 @@ table .product-thumbnail img {
 }
 
 .product-color-green {
-    background: #38cf46;
-}
-.product-color-violet {
-    background: #c30ff0;
+  background: #38cf46;
 }
 
 .product-color-purple {
@@ -8494,7 +8491,7 @@ span.fi-rs-apps {
 }
 
 /***************************
-    Page section margin
+    Page section margin 
 ****************************/
 .mtb-0 {
   margin: 0;

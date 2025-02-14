@@ -20,6 +20,7 @@ class ColorController extends Controller
      */
     public function create()
     {
+
         return view('admin.color.add');
     }
 
@@ -29,7 +30,7 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         Color::newColor($request);
-        return back()->with('message', 'Color info create successfully.');
+        return back()->with('message', 'Unit info create successfully.');
     }
 
     /**
@@ -37,7 +38,7 @@ class ColorController extends Controller
      */
     public function show(Color $color)
     {
-        //
+        return view('admin.color.show', ['color' => $color]);
     }
 
     /**
@@ -63,6 +64,6 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         Color::deleteColor($color);
-        return back()->with('message', 'Color info delete successfully.');
+        return back()->with('message', 'Unit info delete successfully.');
     }
 }
