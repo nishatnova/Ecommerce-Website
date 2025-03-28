@@ -23,21 +23,10 @@ class WishlistController extends Controller
         return redirect('/login-register');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+ 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Wishlist $wishlist)
-    {
-        //
-    }
+  
+   
 
   
 
