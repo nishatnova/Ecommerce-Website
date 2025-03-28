@@ -43,13 +43,6 @@ class CartController extends Controller
         return redirect('/cart')->with('message', 'Added Successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
 
     /**
